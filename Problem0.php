@@ -1,8 +1,11 @@
 <?php
 
 require(__DIR__.'/Problem.php');
-use League\Csv\Reader;
-use League\Csv\Statement;
+require(__DIR__.'/vendor/autoload.php');
+
+use Ddeboer\DataImport\Writer\CsvWriter;
+
+
 
 /**
  * TourRadar's Head of Marketing (who's not a technical expert) has asked you to design a system that:
@@ -32,28 +35,65 @@ class Problem0 implements Problem
         return sprintf($params);
     }
     
+    
+    //1 Get the json data
+    
+    
     public function getDataFromUrl() {
         $client = new \GuzzleHttp\Client(['verify' => false]);
         $contents = array();
         try{
+            
             $request = new \GuzzleHttp\Psr7\Request('GET', 'https://data.cityofnewyork.us/api/views/kku6-nxdu/rows.json?accessType=DOWNLOAD');
+                        
             //send async request         
             $promise = $client->sendAsync($request)->then(function ($response) {
                 echo $response->getStatusCode();
                 if($response->getStatusCode() == 200){
                     $stream = $response->getBody();
                     $contents = $stream->getContents(); 
-                    
+                    $fp = fopen('results.json', 'w');
+                    fwrite($fp, $contents);
+                    fclose($fp);
                 }
             });
             $promise->wait();
-            
-            
-            
+            $this->JsonToCsv();
         } catch (\GuzzleHttp\Exception\ClientException $ex) {
             echo "problem";
+            
         }
     }
+    
+    
+    public function JsonToCsv(){
+        
+        $array = file_get_contents('results.json');
+        $array = json_decode($array, true);
+        
+        echo "<pre>";
+        var_dump($array);
+        echo "</pre>";
+
+        die();
+
+        
+        
+        
+        
+        $fp = fopen('results.csv', 'w');
+        
+            fwrite($fp, (string)$csv);
+        
+        fclose($fp);
+            
+    }
+    public function formatCsv(){}
+    public function saveCsvToDisk(){}
+    public function checkJsonSource(){}
+    public function updateCsvFile(){}
+    public function getJsonSchema(){}
+    
 }
 
 ?>

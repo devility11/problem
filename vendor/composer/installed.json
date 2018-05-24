@@ -239,50 +239,55 @@
         ]
     },
     {
-        "name": "league/csv",
-        "version": "9.1.4",
-        "version_normalized": "9.1.4.0",
+        "name": "sonata-project/exporter",
+        "version": "1.9.0",
+        "version_normalized": "1.9.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/thephpleague/csv.git",
-            "reference": "9c8ad06fb5d747c149875beb6133566c00eaa481"
+            "url": "https://github.com/sonata-project/exporter.git",
+            "reference": "c20cb476179d6b6e5902859c7be9512198e5a552"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/thephpleague/csv/zipball/9c8ad06fb5d747c149875beb6133566c00eaa481",
-            "reference": "9c8ad06fb5d747c149875beb6133566c00eaa481",
+            "url": "https://api.github.com/repos/sonata-project/exporter/zipball/c20cb476179d6b6e5902859c7be9512198e5a552",
+            "reference": "c20cb476179d6b6e5902859c7be9512198e5a552",
             "shasum": ""
         },
         "require": {
-            "ext-mbstring": "*",
-            "php": ">=7.0.10"
+            "php": "^5.6 || ^7.0"
         },
         "require-dev": {
-            "ext-curl": "*",
-            "friendsofphp/php-cs-fixer": "^2.0",
-            "phpstan/phpstan": "^0.9.2",
-            "phpstan/phpstan-phpunit": "^0.9.4",
-            "phpstan/phpstan-strict-rules": "^0.9.0",
-            "phpunit/phpunit": "^6.0"
+            "doctrine/dbal": "^2.5",
+            "doctrine/orm": "^2.4.5",
+            "matthiasnoback/symfony-config-test": "^2.0",
+            "matthiasnoback/symfony-dependency-injection-test": "^1.0",
+            "propel/propel1": "^1.6",
+            "symfony/config": "^2.8 || ^3.2 || ^4.0",
+            "symfony/dependency-injection": "^2.8 || ^3.2 || ^4.0",
+            "symfony/http-foundation": "^2.8 || ^3.2 || ^4.0",
+            "symfony/http-kernel": "^2.8 || ^3.2 || ^4.0",
+            "symfony/phpunit-bridge": "^4.0",
+            "symfony/property-access": "^2.8 || ^3.2 || ^4.0",
+            "symfony/routing": "^2.8 || ^3.2 || ^4.0"
         },
         "suggest": {
-            "ext-iconv": "Needed to ease transcoding CSV using iconv stream filters"
+            "ext-curl": "*",
+            "propel/propel1": "^1.6",
+            "symfony/property-access": "To be able to export from database entities",
+            "symfony/routing": "To be able to export the routes of a Symfony app"
         },
-        "time": "2018-05-01 18:32:48",
+        "time": "2018-05-10 11:12:53",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "9.x-dev"
+                "dev-master": "1.x-dev"
             }
         },
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "League\\Csv\\": "src"
-            },
-            "files": [
-                "src/functions_include.php"
-            ]
+                "Exporter\\": "src/"
+            }
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
@@ -290,21 +295,142 @@
         ],
         "authors": [
             {
-                "name": "Ignace Nyamagana Butera",
-                "email": "nyamsprod@gmail.com",
-                "homepage": "https://github.com/nyamsprod/",
-                "role": "Developer"
+                "name": "Thomas Rabaix",
+                "email": "thomas.rabaix@gmail.com",
+                "homepage": "https://sonata-project.org/"
             }
         ],
-        "description": "Csv data manipulation made easy in PHP",
-        "homepage": "http://csv.thephpleague.com",
+        "description": "Lightweight Exporter library",
+        "homepage": "https://github.com/sonata-project/Exporter",
+        "keywords": [
+            "client",
+            "csv",
+            "data",
+            "export",
+            "xls"
+        ]
+    },
+    {
+        "name": "psr/log",
+        "version": "1.0.2",
+        "version_normalized": "1.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/log.git",
+            "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+            "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2016-10-10 12:19:37",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Log\\": "Psr/Log/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for logging libraries",
+        "homepage": "https://github.com/php-fig/log",
+        "keywords": [
+            "log",
+            "psr",
+            "psr-3"
+        ]
+    },
+    {
+        "name": "ddeboer/data-import",
+        "version": "0.20.0",
+        "version_normalized": "0.20.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ddeboer/data-import.git",
+            "reference": "8fe7e731bb52df0298707eb8fb8b9b8098395437"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ddeboer/data-import/zipball/8fe7e731bb52df0298707eb8fb8b9b8098395437",
+            "reference": "8fe7e731bb52df0298707eb8fb8b9b8098395437",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0",
+            "psr/log": "~1.0"
+        },
+        "require-dev": {
+            "doctrine/dbal": "~2.4",
+            "doctrine/orm": "~2.4",
+            "ext-iconv": "*",
+            "ext-mbstring": "*",
+            "ext-sqlite3": "*",
+            "henrikbjorn/phpspec-code-coverage": "~1.0",
+            "phpoffice/phpexcel": "*",
+            "phpspec/phpspec": "~2.1",
+            "symfony/console": "~2.8|~3.0",
+            "symfony/property-access": "~2.5",
+            "symfony/validator": "~2.8|~3.0"
+        },
+        "suggest": {
+            "doctrine/dbal": "If you want to use the DbalReader",
+            "ext-iconv": "For the CharsetValueConverter",
+            "ext-mbstring": "For the CharsetValueConverter",
+            "phpoffice/phpexcel": "If you want to use the ExcelReader",
+            "symfony/console": "If you want to use the ConsoleProgressWriter",
+            "symfony/property-access": "If you want to use the ObjectConverter",
+            "symfony/validator": "to use the ValidatorFilter"
+        },
+        "time": "2016-06-23 06:26:02",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Ddeboer\\DataImport\\": "src/",
+                "Ddeboer\\DataImport\\Tests\\": "tests/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "The community",
+                "homepage": "https://github.com/ddeboer/data-import/graphs/contributors"
+            },
+            {
+                "name": "David de Boer",
+                "email": "david@ddeboer.nl"
+            }
+        ],
+        "description": "Import data from, and export data to, a range of file formats and media",
         "keywords": [
             "csv",
+            "data",
+            "doctrine",
+            "excel",
             "export",
-            "filter",
-            "import",
-            "read",
-            "write"
+            "import"
         ]
     }
 ]

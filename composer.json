@@ -1,6 +1,7 @@
 {
     "require": {
         "guzzlehttp/guzzle": "6.3.3",
-	"league/csv": "9.1.4"
+	"sonata-project/exporter": "1.9.0",
+	"ddeboer/data-import": "0.20.0"
     }
 }

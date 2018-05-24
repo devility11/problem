@@ -10,17 +10,13 @@ class ComposerStaticInit826aa73f5a4edfa76858e155ded82394
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
-        '9e4824c5afbdc1482b6025ce3d4dfde8' => __DIR__ . '/..' . '/league/csv/src/functions_include.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'P' => 
         array (
+            'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
-        ),
-        'L' => 
-        array (
-            'League\\Csv\\' => 11,
         ),
         'G' => 
         array (
@@ -28,16 +24,25 @@ class ComposerStaticInit826aa73f5a4edfa76858e155ded82394
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
         ),
+        'E' => 
+        array (
+            'Exporter\\' => 9,
+        ),
+        'D' => 
+        array (
+            'Ddeboer\\DataImport\\Tests\\' => 25,
+            'Ddeboer\\DataImport\\' => 19,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
-        ),
-        'League\\Csv\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/league/csv/src',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (
@@ -50,6 +55,18 @@ class ComposerStaticInit826aa73f5a4edfa76858e155ded82394
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'Exporter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sonata-project/exporter/src',
+        ),
+        'Ddeboer\\DataImport\\Tests\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ddeboer/data-import/tests',
+        ),
+        'Ddeboer\\DataImport\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ddeboer/data-import/src',
         ),
     );
 
